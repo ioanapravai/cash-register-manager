@@ -13,6 +13,8 @@ class CheckoutService (val pricingRules: List<IPriceRule>) : ICheckoutService {
     private val tshirts: MutableList<Product> = mutableListOf()
     private val pants: MutableList<Product> = mutableListOf()
 
+    // Scan the product and return the current total price
+    // of all products scanned until now.
     override fun scan(product: Product): Double {
         when (product.code) {
             Consts.VOUCHER_CODE -> vouchers.add(product)
@@ -34,5 +36,11 @@ class CheckoutService (val pricingRules: List<IPriceRule>) : ICheckoutService {
         }
 
         return totalPrice
+    }
+
+    fun clearProducts(){
+        vouchers.clear()
+        tshirts.clear()
+        pants.clear()
     }
 }

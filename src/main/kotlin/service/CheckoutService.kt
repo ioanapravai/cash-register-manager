@@ -2,13 +2,10 @@ package service
 
 import helper.Consts
 import model.Product
-import model.UnitThresholdPriceRule
-import model.XforYRule
 import model.interfaces.ICheckoutService
 import model.interfaces.IPriceRule
 
 class CheckoutService (val pricingRules: List<IPriceRule>) : ICheckoutService {
-    private val scannedProducts: MutableList<Product> = mutableListOf()
     private val vouchers: MutableList<Product> = mutableListOf()
     private val tshirts: MutableList<Product> = mutableListOf()
     private val pants: MutableList<Product> = mutableListOf()
